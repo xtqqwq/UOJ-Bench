@@ -1,0 +1,35 @@
+{
+  "paperUrl": "https://anonymous.4open.science/r/UOJ-Bench-7DE3",
+  "repoUrl": null,
+  "metricLabels": {
+    "generation": "Pass@1 (%)",
+    "hacking": {
+      "easy": "Easy (%)",
+      "hard": "Hard (%)"
+    },
+    "repair": {
+      "easy": "Easy (%)",
+      "hard": "Hard (%)"
+    }
+  },
+  "models": [
+    {
+      "model": "Placeholder Alpha",
+      "generation": 38.2,
+      "hacking": { "easy": 18.5, "hard": 7.1 },
+      "repair": { "easy": 52.0, "hard": 44.3 }
+    },
+    {
+      "model": "Placeholder Beta",
+      "generation": 41.0,
+      "hacking": { "easy": 22.1, "hard": 9.4 },
+      "repair": { "easy": 48.5, "hard": 39.8 }
+    },
+    {
+      "model": "Placeholder Gamma",
+      "generation": 35.6,
+      "hacking": { "easy": 15.2, "hard": 5.8 },
+      "repair": { "easy": 55.2, "hard": 47.1 }
+    }
+  ]
+}
