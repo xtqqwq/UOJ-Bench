@@ -49,10 +49,21 @@ Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 
 ## GitHub Pages
 
-1. Push this repository to GitHub.
-2. **Settings → Pages → Build and deployment**.
-3. Source: deploy from branch **`main`**, folder **`/`** (root) or **`/docs`** if the repo root is the parent project—use the folder that contains `index.html`.
-4. Site URL: `https://<user>.github.io/<repository>/`
+This repo is a **static** site (`index.html` at the repository root). Do **not** use the `/docs` folder setting unless `index.html` actually lives in a `docs/` subdirectory.
+
+### Option A — GitHub Actions (recommended)
+
+1. Push this repository (including `.nojekyll` and `.github/workflows/deploy-pages.yml`).
+2. **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions**.
+3. On push to `main`, the **Deploy Pages** workflow uploads the site without Jekyll.
+
+### Option B — Deploy from branch
+
+1. **Settings → Pages → Source:** **Deploy from a branch**.
+2. Branch **`main`**, folder **`/` (root)** — not `/docs`.
+3. Ensure `.nojekyll` is at the repo root so GitHub skips Jekyll.
+
+Site URL: `https://xtqqwq.github.io/UOJ-Bench/`
 
 ## Citation
 
