@@ -10,12 +10,22 @@
     <div class="wrap">
       <header class="hero">
         <h1>UOJ-Bench</h1>
-        <p>
+        <p class="paper-title">
+          Beyond Problem Solving: UOJ-Bench for Evaluating Code Generation,
+          Hacking, and Repair in Competitive Programming
+        </p>
+        <p class="tagline">
           A benchmark on the Universal Online Judge for code generation, code
           hacking, and code repair—evaluated through UOJ’s native judging
           infrastructure.
         </p>
-        <a class="paper-link" id="paper-link" href="#" hidden>Paper / release</a>
+        <nav class="hero-links" aria-label="Project links">
+          <a id="paper-link" href="#" hidden>Paper</a>
+          <a id="repo-link-hero" href="#" hidden>GitHub</a>
+          <a href="https://uoj.ac" target="_blank" rel="noopener noreferrer"
+            >UOJ</a
+          >
+        </nav>
       </header>
 
       <div id="banner" class="banner" hidden></div>
@@ -65,10 +75,6 @@
             aria-labelledby="tab-gen"
           >
             <h2>Leaderboard</h2>
-            <p class="hint">
-              Replace values in <code>leaderboard.json</code> with numbers from
-              your paper. Column headers use metric labels from the same file.
-            </p>
             <div class="table-scroll">
               <table id="table-gen">
                 <thead>
@@ -98,7 +104,6 @@
             hidden
           >
             <h2>Leaderboard</h2>
-            <p class="hint">Easy and hard splits for the hacking task.</p>
             <div class="table-scroll">
               <table id="table-hack">
                 <thead>
@@ -136,7 +141,6 @@
             hidden
           >
             <h2>Leaderboard</h2>
-            <p class="hint">Easy and hard splits for the repair task.</p>
             <div class="table-scroll">
               <table id="table-repair">
                 <thead>
@@ -169,11 +173,8 @@
       </div>
 
       <footer>
-        <p>Figures are placeholders until you sync from the UOJ-Bench paper.</p>
         <p id="repo-line">
-          <a id="repo-link" href="#">GitHub repository</a>
-          — for this standalone site repo, use Pages folder <strong>/</strong>
-          (root) on your default branch.
+          <a id="repo-link" href="#">GitHub</a>
         </p>
       </footer>
     </div>
@@ -391,14 +392,19 @@
                 pl.hidden = true;
               }
               var rl = document.getElementById("repo-link");
+              var rlHero = document.getElementById("repo-link-hero");
               var rline = document.getElementById("repo-line");
               if (payload.repoUrl) {
                 rl.href = payload.repoUrl;
-                rl.textContent = "GitHub repository";
+                rl.textContent = "GitHub";
+                if (rlHero) {
+                  rlHero.href = payload.repoUrl;
+                  rlHero.hidden = false;
+                }
                 rline.hidden = false;
               } else {
-                rline.innerHTML =
-                  "Add <code>repoUrl</code> in leaderboard.json for a repo link — enable Pages from <strong>/</strong> (root) on your default branch.";
+                rline.hidden = true;
+                if (rlHero) rlHero.hidden = true;
               }
               applyLabels(payload.metricLabels || {});
               bindSort(models);
