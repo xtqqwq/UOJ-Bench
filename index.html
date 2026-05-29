@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UOJ-Bench — Leaderboard</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=2" />
   </head>
   <body>
     <div class="wrap">
@@ -77,17 +77,24 @@
             <h2>Leaderboard</h2>
             <div class="table-scroll">
               <table id="table-gen">
+                <colgroup>
+                  <col class="col-rank" />
+                  <col class="col-model" />
+                  <col class="col-num" />
+                </colgroup>
                 <thead>
                   <tr>
                     <th class="rank">#</th>
-                    <th>Model</th>
+                    <th class="col-model">Model</th>
                     <th
-                      class="sortable sorted-desc"
+                      class="sortable num sorted-desc"
                       data-sort="generation"
                       data-panel="gen"
                     >
-                      <span id="th-gen-label">Metric</span
-                      ><span class="indicator">▼</span>
+                      <span class="th-inner"
+                        ><span id="th-gen-label">Metric</span
+                        ><span class="indicator">▼</span></span
+                      >
                     </th>
                   </tr>
                 </thead>
@@ -106,25 +113,35 @@
             <h2>Leaderboard</h2>
             <div class="table-scroll">
               <table id="table-hack">
+                <colgroup>
+                  <col class="col-rank" />
+                  <col class="col-model" />
+                  <col class="col-num" />
+                  <col class="col-num" />
+                </colgroup>
                 <thead>
                   <tr>
                     <th class="rank">#</th>
-                    <th>Model</th>
+                    <th class="col-model">Model</th>
                     <th
-                      class="sortable sorted-desc"
+                      class="sortable num sorted-desc"
                       data-sort="hacking.easy"
                       data-panel="hack"
                     >
-                      <span id="th-hack-easy">Easy</span
-                      ><span class="indicator">▼</span>
+                      <span class="th-inner"
+                        ><span id="th-hack-easy">Easy</span
+                        ><span class="indicator">▼</span></span
+                      >
                     </th>
                     <th
-                      class="sortable"
+                      class="sortable num"
                       data-sort="hacking.hard"
                       data-panel="hack"
                     >
-                      <span id="th-hack-hard">Hard</span
-                      ><span class="indicator">▼</span>
+                      <span class="th-inner"
+                        ><span id="th-hack-hard">Hard</span
+                        ><span class="indicator">▼</span></span
+                      >
                     </th>
                   </tr>
                 </thead>
@@ -143,25 +160,35 @@
             <h2>Leaderboard</h2>
             <div class="table-scroll">
               <table id="table-repair">
+                <colgroup>
+                  <col class="col-rank" />
+                  <col class="col-model" />
+                  <col class="col-num" />
+                  <col class="col-num" />
+                </colgroup>
                 <thead>
                   <tr>
                     <th class="rank">#</th>
-                    <th>Model</th>
+                    <th class="col-model">Model</th>
                     <th
-                      class="sortable sorted-desc"
+                      class="sortable num sorted-desc"
                       data-sort="repair.easy"
                       data-panel="repair"
                     >
-                      <span id="th-repair-easy">Easy</span
-                      ><span class="indicator">▼</span>
+                      <span class="th-inner"
+                        ><span id="th-repair-easy">Easy</span
+                        ><span class="indicator">▼</span></span
+                      >
                     </th>
                     <th
-                      class="sortable"
+                      class="sortable num"
                       data-sort="repair.hard"
                       data-panel="repair"
                     >
-                      <span id="th-repair-hard">Hard</span
-                      ><span class="indicator">▼</span>
+                      <span class="th-inner"
+                        ><span id="th-repair-hard">Hard</span
+                        ><span class="indicator">▼</span></span
+                      >
                     </th>
                   </tr>
                 </thead>

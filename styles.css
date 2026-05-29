@@ -157,7 +157,20 @@ a:hover {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 0.9375rem;
+}
+
+.col-rank {
+  width: 3rem;
+}
+
+.col-model {
+  width: auto;
+}
+
+.col-num {
+  width: 9.5rem;
 }
 
 th,
@@ -165,6 +178,7 @@ td {
   padding: 0.65rem 0.85rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
+  vertical-align: middle;
 }
 
 th {
@@ -176,11 +190,27 @@ th {
   white-space: nowrap;
 }
 
+th.num,
+td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 th.sortable {
   cursor: pointer;
   user-select: none;
   color: var(--text);
-  text-align: right;
+  padding: 0;
+}
+
+th.sortable .th-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.65rem 0.85rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 th.sortable:hover {
@@ -189,19 +219,14 @@ th.sortable:hover {
 
 th.sortable .indicator {
   opacity: 0.35;
-  margin-left: 0.25rem;
   font-size: 0.75rem;
+  line-height: 1;
 }
 
 th.sortable.sorted-asc .indicator,
 th.sortable.sorted-desc .indicator {
   opacity: 1;
   color: var(--accent);
-}
-
-td.num {
-  font-variant-numeric: tabular-nums;
-  text-align: right;
 }
 
 tr:last-child td {
