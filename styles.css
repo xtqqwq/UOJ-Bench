@@ -196,21 +196,30 @@ td.num {
   font-variant-numeric: tabular-nums;
 }
 
-th.sortable {
+th.sortable.num {
   cursor: pointer;
   user-select: none;
   color: var(--text);
-  padding: 0;
+  letter-spacing: normal;
+  /* Same padding as td.num so ▼ sits on the same right edge as digits */
+  padding: 0.65rem 0.85rem;
 }
 
 th.sortable .th-inner {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.65rem 0.85rem;
-  width: 100%;
-  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 0.5rem;
+  line-height: 1.2;
+}
+
+th.sortable .th-label {
+  flex: 1 1 auto;
+  text-align: left;
+  min-width: 0;
+  white-space: normal;
+  line-height: 1.25;
 }
 
 th.sortable:hover {
@@ -218,6 +227,7 @@ th.sortable:hover {
 }
 
 th.sortable .indicator {
+  flex: 0 0 auto;
   opacity: 0.35;
   font-size: 0.75rem;
   line-height: 1;

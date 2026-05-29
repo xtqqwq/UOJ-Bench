@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UOJ-Bench — Leaderboard</title>
-    <link rel="stylesheet" href="./styles.css?v=2" />
+    <link rel="stylesheet" href="./styles.css?v=5" />
   </head>
   <body>
     <div class="wrap">
@@ -92,8 +92,8 @@
                       data-panel="gen"
                     >
                       <span class="th-inner"
-                        ><span id="th-gen-label">Metric</span
-                        ><span class="indicator">▼</span></span
+                        ><span class="th-label" id="th-gen-label">Metric</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
                       >
                     </th>
                   </tr>
@@ -129,8 +129,8 @@
                       data-panel="hack"
                     >
                       <span class="th-inner"
-                        ><span id="th-hack-easy">Easy</span
-                        ><span class="indicator">▼</span></span
+                        ><span class="th-label" id="th-hack-easy">Easy</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
                       >
                     </th>
                     <th
@@ -139,8 +139,8 @@
                       data-panel="hack"
                     >
                       <span class="th-inner"
-                        ><span id="th-hack-hard">Hard</span
-                        ><span class="indicator">▼</span></span
+                        ><span class="th-label" id="th-hack-hard">Hard</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
                       >
                     </th>
                   </tr>
@@ -176,8 +176,8 @@
                       data-panel="repair"
                     >
                       <span class="th-inner"
-                        ><span id="th-repair-easy">Easy</span
-                        ><span class="indicator">▼</span></span
+                        ><span class="th-label" id="th-repair-easy">Easy</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
                       >
                     </th>
                     <th
@@ -186,8 +186,8 @@
                       data-panel="repair"
                     >
                       <span class="th-inner"
-                        ><span id="th-repair-hard">Hard</span
-                        ><span class="indicator">▼</span></span
+                        ><span class="th-label" id="th-repair-hard">Hard</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
                       >
                     </th>
                   </tr>
@@ -399,7 +399,7 @@
 
         function init() {
           setupTabs();
-          fetch("./leaderboard.json")
+          fetch(new URL("leaderboard.json", document.baseURI).href)
             .then(function (r) {
               if (!r.ok) throw new Error("HTTP " + r.status);
               return r.json();
