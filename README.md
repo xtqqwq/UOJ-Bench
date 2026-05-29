@@ -25,46 +25,6 @@ Interactive results for all models and tasks:
 
 **[https://xtqqwq.github.io/UOJ-Bench/](https://xtqqwq.github.io/UOJ-Bench/)**
 
-Scores are loaded from [`leaderboard.json`](leaderboard.json) (Tables 2–3 in the paper). To update numbers, edit that file and redeploy Pages.
-
-## Repository layout
-
-| Path | Description |
-|------|-------------|
-| [`index.html`](index.html) | Leaderboard site (GitHub Pages) |
-| [`leaderboard.json`](leaderboard.json) | Model scores and metric labels |
-| [`styles.css`](styles.css) | Site styles |
-
-Evaluation code and datasets will be released with the paper; this repo currently hosts the public leaderboard.
-
-## Local preview
-
-`fetch()` requires HTTP. From this directory:
-
-```bash
-python3 -m http.server 8080
-```
-
-Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
-
-## GitHub Pages
-
-This repo is a **static** site (`index.html` at the repository root). Do **not** use the `/docs` folder setting unless `index.html` actually lives in a `docs/` subdirectory.
-
-### Option A — GitHub Actions (recommended)
-
-1. Push this repository (including `.nojekyll` and `.github/workflows/deploy-pages.yml`).
-2. **Settings → Pages → Build and deployment → Source:** choose **GitHub Actions**.
-3. On push to `main`, the **Deploy Pages** workflow uploads the site without Jekyll.
-
-### Option B — Deploy from branch
-
-1. **Settings → Pages → Source:** **Deploy from a branch**.
-2. Branch **`main`**, folder **`/` (root)** — not `/docs`.
-3. Ensure `.nojekyll` is at the repo root so GitHub skips Jekyll.
-
-Site URL: `https://xtqqwq.github.io/UOJ-Bench/`
-
 ## Citation
 
 If you use UOJ-Bench in your work, please cite:
