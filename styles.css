@@ -180,6 +180,7 @@ th.sortable {
   cursor: pointer;
   user-select: none;
   color: var(--text);
+  text-align: right;
 }
 
 th.sortable:hover {
