@@ -1,0 +1,71 @@
+{
+  "paperUrl": "#",
+  "repoUrl": "https://github.com/hehezhou/UOJ-Bench",
+  "metricLabels": {
+    "generation": "Pass@1 (%)",
+    "hacking": {
+      "easy": "Hack Easy (%)",
+      "hard": "Hack Hard (%)"
+    },
+    "repair": {
+      "easy": "Repair Easy (%)",
+      "hard": "Repair Hard (%)"
+    }
+  },
+  "models": [
+    {
+      "model": "GPT-5.2-high",
+      "generation": 44.05,
+      "hacking": { "easy": 71.61, "hard": 58.6 },
+      "repair": { "easy": 56.4, "hard": 52.31 }
+    },
+    {
+      "model": "Gemini-3-pro-preview",
+      "generation": 38.84,
+      "hacking": { "easy": 61.38, "hard": 44.17 },
+      "repair": { "easy": 53.6, "hard": 48.15 }
+    },
+    {
+      "model": "GPT-5-high",
+      "generation": 25.6,
+      "hacking": { "easy": 50.73, "hard": 36.9 },
+      "repair": { "easy": 43.8, "hard": 38.89 }
+    },
+    {
+      "model": "GPT-5",
+      "generation": 23.96,
+      "hacking": { "easy": 51.77, "hard": 38.15 },
+      "repair": { "easy": 41.4, "hard": 32.87 }
+    },
+    {
+      "model": "Kimi-k2-thinking",
+      "generation": 20.68,
+      "hacking": { "easy": 45.93, "hard": 28.2 },
+      "repair": { "easy": 32.2, "hard": 26.85 }
+    },
+    {
+      "model": "Deepseek-v3.2-thinking",
+      "generation": 18.75,
+      "hacking": { "easy": 40.29, "hard": 25.43 },
+      "repair": { "easy": 26.2, "hard": 24.07 }
+    },
+    {
+      "model": "GPT-OSS-120B",
+      "generation": 12.35,
+      "hacking": { "easy": 31.11, "hard": 20.17 },
+      "repair": { "easy": 20.2, "hard": 9.72 }
+    },
+    {
+      "model": "Claude-Opus-4-5",
+      "generation": 6.7,
+      "hacking": { "easy": 12.11, "hard": 8.99 },
+      "repair": { "easy": 16.6, "hard": 6.94 }
+    },
+    {
+      "model": "Qwen3-Coder",
+      "generation": 2.38,
+      "hacking": { "easy": 7.31, "hard": 5.64 },
+      "repair": { "easy": 3.6, "hard": 3.7 }
+    }
+  ]
+}

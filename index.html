@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UOJ-Bench — Leaderboard</title>
+    <link rel="stylesheet" href="./styles.css?v=6" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <h1>UOJ-Bench</h1>
+        <p class="paper-title">
+          Beyond Problem Solving: UOJ-Bench for Evaluating Code Generation,
+          Hacking, and Repair in Competitive Programming
+        </p>
+        <p class="tagline">
+          A benchmark on the Universal Online Judge for code generation, code
+          hacking, and code repair—evaluated through UOJ’s native judging
+          infrastructure.
+        </p>
+        <nav class="hero-links" aria-label="Project links">
+          <a id="paper-link" href="#" hidden>Paper</a>
+          <a id="repo-link-hero" href="#" hidden>GitHub</a>
+          <a href="https://uoj.ac" target="_blank" rel="noopener noreferrer"
+            >UOJ</a
+          >
+          <a
+            href="https://uoj.ac/api-application"
+            target="_blank"
+            rel="noopener noreferrer"
+            >API Application</a
+          >
+        </nav>
+      </header>
+
+      <div id="banner" class="banner" hidden></div>
+
+      <div class="panel">
+        <div class="tabs" role="tablist" aria-label="Task leaderboards">
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            id="tab-gen"
+            aria-selected="true"
+            aria-controls="panel-gen"
+            data-panel="gen"
+          >
+            Code generation
+          </button>
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            id="tab-hack"
+            aria-selected="false"
+            aria-controls="panel-hack"
+            data-panel="hack"
+          >
+            Code hacking
+          </button>
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            id="tab-repair"
+            aria-selected="false"
+            aria-controls="panel-repair"
+            data-panel="repair"
+          >
+            Code repair
+          </button>
+        </div>
+
+        <div class="tab-panels">
+          <section
+            class="tab-panel"
+            id="panel-gen"
+            role="tabpanel"
+            aria-labelledby="tab-gen"
+          >
+            <h2>Leaderboard</h2>
+            <div class="table-scroll">
+              <table id="table-gen">
+                <colgroup>
+                  <col class="col-rank" />
+                  <col class="col-model" />
+                  <col class="col-num" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="rank">#</th>
+                    <th class="col-model">Model</th>
+                    <th
+                      class="sortable num sorted-desc"
+                      data-sort="generation"
+                      data-panel="gen"
+                    >
+                      <span class="th-inner"
+                        ><span class="th-label" id="th-gen-label">Metric</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section
+            class="tab-panel"
+            id="panel-hack"
+            role="tabpanel"
+            aria-labelledby="tab-hack"
+            hidden
+          >
+            <h2>Leaderboard</h2>
+            <div class="table-scroll">
+              <table id="table-hack">
+                <colgroup>
+                  <col class="col-rank" />
+                  <col class="col-model" />
+                  <col class="col-num" />
+                  <col class="col-num" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="rank">#</th>
+                    <th class="col-model">Model</th>
+                    <th
+                      class="sortable num sorted-desc"
+                      data-sort="hacking.easy"
+                      data-panel="hack"
+                    >
+                      <span class="th-inner"
+                        ><span class="th-label" id="th-hack-easy">Easy</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
+                      >
+                    </th>
+                    <th
+                      class="sortable num"
+                      data-sort="hacking.hard"
+                      data-panel="hack"
+                    >
+                      <span class="th-inner"
+                        ><span class="th-label" id="th-hack-hard">Hard</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section
+            class="tab-panel"
+            id="panel-repair"
+            role="tabpanel"
+            aria-labelledby="tab-repair"
+            hidden
+          >
+            <h2>Leaderboard</h2>
+            <div class="table-scroll">
+              <table id="table-repair">
+                <colgroup>
+                  <col class="col-rank" />
+                  <col class="col-model" />
+                  <col class="col-num" />
+                  <col class="col-num" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="rank">#</th>
+                    <th class="col-model">Model</th>
+                    <th
+                      class="sortable num sorted-desc"
+                      data-sort="repair.easy"
+                      data-panel="repair"
+                    >
+                      <span class="th-inner"
+                        ><span class="th-label" id="th-repair-easy">Easy</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
+                      >
+                    </th>
+                    <th
+                      class="sortable num"
+                      data-sort="repair.hard"
+                      data-panel="repair"
+                    >
+                      <span class="th-inner"
+                        ><span class="th-label" id="th-repair-hard">Hard</span
+                        ><span class="indicator" aria-hidden="true">▼</span></span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer>
+        <p id="repo-line">
+          <a id="repo-link" href="#">GitHub</a>
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var sortState = {
+          gen: { key: "generation", dir: "desc" },
+          hack: { key: "hacking.easy", dir: "desc" },
+          repair: { key: "repair.easy", dir: "desc" },
+        };
+
+        function numeric(val) {
+          if (typeof val === "number" && !isNaN(val)) return val;
+          var n = parseFloat(String(val).replace(/[%\s,]/g, ""));
+          return isFinite(n) ? n : -Infinity;
+        }
+
+        function getValue(row, sortKey) {
+          if (sortKey === "generation") return numeric(row.generation);
+          var parts = sortKey.split(".");
+          var a = row[parts[0]];
+          if (!a || typeof a !== "object") return -Infinity;
+          return numeric(a[parts[1]]);
+        }
+
+        function formatCell(val) {
+          if (val == null) return "—";
+          if (typeof val === "number")
+            return Number.isInteger(val) ? String(val) : val.toFixed(1);
+          return String(val);
+        }
+
+        function sortedModels(models, panel) {
+          var state = sortState[panel];
+          var key = state.key;
+          var dir = state.dir;
+          var copy = models.slice();
+          copy.sort(function (a, b) {
+            var va = getValue(a, key);
+            var vb = getValue(b, key);
+            if (va !== vb) return dir === "desc" ? vb - va : va - vb;
+            return String(a.model).localeCompare(String(b.model));
+          });
+          return copy;
+        }
+
+        function updateSortHeaders(panel) {
+          var state = sortState[panel];
+          var prefix =
+            panel === "gen"
+              ? "#table-gen"
+              : panel === "hack"
+                ? "#table-hack"
+                : "#table-repair";
+          document.querySelectorAll(prefix + " th.sortable").forEach(function (
+            th
+          ) {
+            th.classList.remove("sorted-asc", "sorted-desc");
+            var sk = th.getAttribute("data-sort");
+            if (sk === state.key) {
+              th.classList.add(
+                state.dir === "desc" ? "sorted-desc" : "sorted-asc"
+              );
+              var ind = th.querySelector(".indicator");
+              if (ind) ind.textContent = state.dir === "desc" ? "▼" : "▲";
+            } else {
+              var ind2 = th.querySelector(".indicator");
+              if (ind2) ind2.textContent = "▼";
+            }
+          });
+        }
+
+        function renderTable(panel, models, labels) {
+          var id =
+            panel === "gen"
+              ? "table-gen"
+              : panel === "hack"
+                ? "table-hack"
+                : "table-repair";
+          var tbody = document.querySelector("#" + id + " tbody");
+          tbody.innerHTML = "";
+          var rows = sortedModels(models, panel);
+          rows.forEach(function (row, i) {
+            var tr = document.createElement("tr");
+            if (panel === "gen") {
+              tr.innerHTML =
+                '<td class="rank">' +
+                (i + 1) +
+                "</td><td>" +
+                escapeHtml(row.model) +
+                '</td><td class="num">' +
+                formatCell(row.generation) +
+                "</td>";
+            } else if (panel === "hack") {
+              tr.innerHTML =
+                '<td class="rank">' +
+                (i + 1) +
+                "</td><td>" +
+                escapeHtml(row.model) +
+                '</td><td class="num">' +
+                formatCell(row.hacking && row.hacking.easy) +
+                '</td><td class="num">' +
+                formatCell(row.hacking && row.hacking.hard) +
+                "</td>";
+            } else {
+              tr.innerHTML =
+                '<td class="rank">' +
+                (i + 1) +
+                "</td><td>" +
+                escapeHtml(row.model) +
+                '</td><td class="num">' +
+                formatCell(row.repair && row.repair.easy) +
+                '</td><td class="num">' +
+                formatCell(row.repair && row.repair.hard) +
+                "</td>";
+            }
+            tbody.appendChild(tr);
+          });
+          updateSortHeaders(panel);
+        }
+
+        function escapeHtml(s) {
+          var d = document.createElement("div");
+          d.textContent = s;
+          return d.innerHTML;
+        }
+
+        function applyLabels(labels) {
+          var g = document.getElementById("th-gen-label");
+          if (g && labels.generation) g.textContent = labels.generation;
+          var he = document.getElementById("th-hack-easy");
+          var hh = document.getElementById("th-hack-hard");
+          if (he && labels.hacking) he.textContent = labels.hacking.easy;
+          if (hh && labels.hacking) hh.textContent = labels.hacking.hard;
+          var re = document.getElementById("th-repair-easy");
+          var rh = document.getElementById("th-repair-hard");
+          if (re && labels.repair) re.textContent = labels.repair.easy;
+          if (rh && labels.repair) rh.textContent = labels.repair.hard;
+        }
+
+        function bindSort(models) {
+          document.querySelectorAll("th.sortable").forEach(function (th) {
+            th.addEventListener("click", function () {
+              var panel = th.getAttribute("data-panel");
+              var key = th.getAttribute("data-sort");
+              var st = sortState[panel];
+              if (st.key === key) {
+                st.dir = st.dir === "desc" ? "asc" : "desc";
+              } else {
+                st.key = key;
+                st.dir = "desc";
+              }
+              renderTable("gen", models, null);
+              renderTable("hack", models, null);
+              renderTable("repair", models, null);
+            });
+          });
+        }
+
+        function setupTabs() {
+          var tabs = document.querySelectorAll(".tab");
+          var panels = {
+            gen: document.getElementById("panel-gen"),
+            hack: document.getElementById("panel-hack"),
+            repair: document.getElementById("panel-repair"),
+          };
+          tabs.forEach(function (tab) {
+            tab.addEventListener("click", function () {
+              var id = tab.getAttribute("data-panel");
+              tabs.forEach(function (t) {
+                var sel = t.getAttribute("data-panel") === id;
+                t.setAttribute("aria-selected", sel);
+              });
+              Object.keys(panels).forEach(function (k) {
+                panels[k].hidden = k !== id;
+              });
+            });
+          });
+        }
+
+        function setBanner(message, isError) {
+          var el = document.getElementById("banner");
+          if (!message) {
+            el.hidden = true;
+            el.textContent = "";
+            el.classList.remove("error");
+            return;
+          }
+          el.hidden = false;
+          el.textContent = message;
+          if (isError) el.classList.add("error");
+          else el.classList.remove("error");
+        }
+
+        function init() {
+          setupTabs();
+          fetch(new URL("leaderboard.json", document.baseURI).href)
+            .then(function (r) {
+              if (!r.ok) throw new Error("HTTP " + r.status);
+              return r.json();
+            })
+            .then(function (payload) {
+              var models = payload.models;
+              if (!Array.isArray(models) || models.length === 0) {
+                setBanner("No models in leaderboard.json.", true);
+                return;
+              }
+              setBanner("");
+              var pl = document.getElementById("paper-link");
+              if (payload.paperUrl) {
+                pl.href = payload.paperUrl;
+                pl.hidden = false;
+              } else {
+                pl.hidden = true;
+              }
+              var rl = document.getElementById("repo-link");
+              var rlHero = document.getElementById("repo-link-hero");
+              var rline = document.getElementById("repo-line");
+              if (payload.repoUrl) {
+                rl.href = payload.repoUrl;
+                rl.textContent = "GitHub";
+                if (rlHero) {
+                  rlHero.href = payload.repoUrl;
+                  rlHero.hidden = false;
+                }
+                rline.hidden = false;
+              } else {
+                rline.hidden = true;
+                if (rlHero) rlHero.hidden = true;
+              }
+              applyLabels(payload.metricLabels || {});
+              bindSort(models);
+              renderTable("gen", models, null);
+              renderTable("hack", models, null);
+              renderTable("repair", models, null);
+            })
+            .catch(function () {
+              setBanner(
+                "Could not load leaderboard.json. If you opened this file directly (file://), run a local server (e.g. python -m http.server in docs/) or use GitHub Pages.",
+                true
+              );
+            });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", init);
+        } else {
+          init();
+        }
+      })();
+    </script>
+  </body>
+</html>
