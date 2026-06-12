@@ -1,5 +1,5 @@
 {
-  "paperUrl": "#",
+  "paperUrl": "https://arxiv.org/abs/2606.12864",
   "repoUrl": "https://github.com/hehezhou/UOJ-Bench",
   "metricLabels": {
     "generation": "Pass@1 (%)",

@@ -4,7 +4,7 @@ Official repository for the paper **"Beyond Problem Solving: UOJ-Bench for Evalu
 
 <p align="center">
   <a href="https://xtqqwq.github.io/UOJ-Bench/">🏠 Leaderboard</a> •
-  <a href="#">📄 Paper</a> •
+  <a href="https://arxiv.org/abs/2606.12864">📄 Paper</a> •
   <a href="https://uoj.ac">⚖️ UOJ</a> •
   <a href="https://github.com/hehezhou/UOJ-Bench">💻 GitHub</a>
 </p>
